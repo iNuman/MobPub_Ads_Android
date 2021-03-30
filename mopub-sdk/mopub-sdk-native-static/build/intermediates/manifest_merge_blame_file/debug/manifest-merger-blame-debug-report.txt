@@ -1,0 +1,16 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mopub.mobileads.native_static"
+4    android:versionCode="87"
+5    android:versionName="5.16.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-native-static\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-native-static\src\main\AndroidManifest.xml
+10
+11    <application />
+11-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-native-static\src\main\AndroidManifest.xml:3:5-19
+12
+13</manifest>

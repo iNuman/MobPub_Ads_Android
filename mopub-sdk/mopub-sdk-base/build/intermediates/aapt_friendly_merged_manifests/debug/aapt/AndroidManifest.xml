@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.mopub.mobileads.base"
+    android:versionCode="87"
+    android:versionName="5.16.3" >
+
+    <uses-sdk
+        android:minSdkVersion="19"
+        android:targetSdkVersion="30" />
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application>
+        <activity
+            android:name="com.mopub.common.MoPubBrowser"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/MoPubFullscreenTheme" />
+        <activity
+            android:name="com.mopub.common.privacy.ConsentDialogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@style/MoPubFullscreenTheme" />
+    </application>
+
+</manifest>

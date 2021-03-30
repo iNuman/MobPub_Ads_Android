@@ -1,0 +1,12 @@
+R_DEF: Internal format may change without notice
+local
+attr? moPubAdSize
+drawable ic_mopub_close_button
+drawable ic_mopub_skip_button
+id height_250
+id height_280
+id height_50
+id height_90
+id match_view
+style MoPubFullscreenTheme
+styleable MoPubView moPubAdSize

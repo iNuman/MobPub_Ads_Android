@@ -1,0 +1,108 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.3"
+
+    defaultConfig {
+        applicationId "com.numan.mobpub"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.3.3'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.3.3'
+
+/*    implementation 'com.facebook.android:audience-network-sdk:4.22.0'
+    implementation 'com.flurry.android:analytics:6.9.2'
+    implementation 'com.flurry.android:ads:6.9.2'
+    implementation 'com.google.android.gms:play-services-ads:10.2.0'
+    implementation('com.mopub:mopub-sdk-native-static:4.12.0@aar') { transitive = true }
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'*/
+/*
+    // For banners
+    implementation('com.mopub:mopub-sdk-banner:5.15.0@aar') {
+        transitive = true
+    }
+
+    // For interstitials and rewarded ads
+    implementation('com.mopub:mopub-sdk-fullscreen:5.15.0@aar') {
+        transitive = true
+    }
+    // For interstitials
+    implementation('com.mopub:mopub-sdk-interstitial:+@aar') {
+        transitive = true
+    }
+    // For rewarded videos. This will automatically also include interstitials
+    implementation('com.mopub:mopub-sdk-rewardedvideo:+@aar') {
+        transitive = true
+    }
+    // For native static (images).
+    implementation('com.mopub:mopub-sdk-native-static:5.15.0@aar') {
+        transitive = true
+    }*/
+
+
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //below needed for mopub integration.
+    //implementation('com.mopub:mopub-sdk:+0@aar')
+    // This will get the latest available version of the MoPub SDK.
+    // Alternatively, you may specify a specific version from the changelog to download.
+    implementation('com.mopub:mopub-sdk:+@aar') {
+        transitive = true
+    }
+    implementation 'com.flurry.android:analytics:6.9.2'
+    implementation 'com.flurry.android:ads:6.9.2'
+    implementation 'com.google.android.gms:play-services-ads:19.6.0'
+    implementation 'com.facebook.android:audience-network-sdk:6.0.0'
+    implementation 'com.mopub.mediation:facebookaudiencenetwork:6.0.0.0'
+    implementation 'com.mopub.mediation:admob:19.5.0.2'
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.0'
+
+    //below required to solve "Cannot fit requested classes in a single dex file (# methods: 95393 > 65536 ; # fields: 76187 > 65536)" error after adding mopub
+    implementation 'com.android.support:multidex:1.0.3'
+}
+
+//below needed for mopub integration
+repositories {
+    google()
+    jcenter()
+    mavenCentral()
+    maven { url "https://s3.amazonaws.com/moat-sdk-builds" }
+}

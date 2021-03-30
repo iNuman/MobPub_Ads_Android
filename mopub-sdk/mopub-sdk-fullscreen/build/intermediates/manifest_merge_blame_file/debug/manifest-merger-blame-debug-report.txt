@@ -1,0 +1,25 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.mopub.mobileads.interstitial"
+4    android:versionCode="87"
+5    android:versionName="5.16.3" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="19"
+8-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-fullscreen\src\main\AndroidManifest.xml
+9        android:targetSdkVersion="30" />
+9-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-fullscreen\src\main\AndroidManifest.xml
+10
+11    <application>
+11-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-fullscreen\src\main\AndroidManifest.xml:4:5-9:19
+12        <activity
+12-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-fullscreen\src\main\AndroidManifest.xml:5:9-8:59
+13            android:name="com.mopub.mobileads.MoPubFullscreenActivity"
+13-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-fullscreen\src\main\AndroidManifest.xml:6:13-71
+14            android:configChanges="keyboardHidden|orientation|screenSize"
+14-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-fullscreen\src\main\AndroidManifest.xml:7:13-74
+15            android:theme="@style/MoPubFullscreenTheme" />
+15-->C:\Android_Data\Github_Syncs\mopub-android-sdk\mopub-sdk\mopub-sdk-fullscreen\src\main\AndroidManifest.xml:8:13-56
+16    </application>
+17
+18</manifest>
