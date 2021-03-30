@@ -32,12 +32,19 @@ import com.numan.mobpub.utils_.ConnectivityCheckup.hasInternetConnection
 import com.numan.mobpub.utils_.SampleActivityUtils
 import java.util.*
 
+/*
+* TODO: Documentation:
+*  https://developers.mopub.com/publishers/android/integrate/
+*  https://ayltai.medium.com/a-complete-guide-to-mopub-native-ad-mediation-on-android-e6ecc2afff24
+*  https://www.youtube.com/watch?v=4Kyp7ZmKzTo
+*
+* */
+
 class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     companion object {
         var REQUIRED_DANGEROUS_PERMISSIONS: MutableList<String> = ArrayList()
         private const val SHOWING_CONSENT_DIALOG_KEY = "ShowingConsentDialog"
-
         private const val RC_BARCODE_CAPTURE = 9001
 
 
