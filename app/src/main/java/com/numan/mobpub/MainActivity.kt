@@ -33,10 +33,20 @@ import com.numan.mobpub.utils_.SampleActivityUtils
 import java.util.*
 
 /*
-* TODO: Documentation:
+*  Documentation:
 *  https://developers.mopub.com/publishers/android/integrate/
+*  https://developers.mopub.com/publishers/integrate/
 *  https://ayltai.medium.com/a-complete-guide-to-mopub-native-ad-mediation-on-android-e6ecc2afff24
 *  https://www.youtube.com/watch?v=4Kyp7ZmKzTo
+*
+*  Integrating:: Different Ad Networks
+*  https://developers.mopub.com/publishers/mediation/integrate/
+*
+*  New MobPub Integration:
+*  https://github.com/mopub/mopub-android-mediation
+*
+*  Mediation:
+*  https://developers.mopub.com/publishers/mediation/integrate-android/
 *
 * */
 
@@ -91,6 +101,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 //        importantInitializations()
         initViews()
         intiAds()
+
 
     }
 
@@ -196,8 +207,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun intiAds() {
-        adsHandlerBannerNdInterstitial =
-            MoPubAdsHandlerBannerNdInterstitial(this, AddCheck.MySourceActivity)
+        adsHandlerBannerNdInterstitial = MoPubAdsHandlerBannerNdInterstitial(this, AddCheck.MySourceActivity)
         adsHandlerRewardVideo = MoPubAdsHandlerRewardVideo(this, AddCheck.MySourceActivity)
 
 
@@ -241,6 +251,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         nativeAdShow?.setOnClickListener {
             nativeAds()
         }
+        nativeAds()
     }
 
     private fun initViews() {

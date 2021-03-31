@@ -42,11 +42,10 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
         val adUnitId = getString(R.string.ad_unit_id_native)
 
 
-
         mMoPubNative = MoPubNative(requireContext(), adUnitId, object : MoPubNativeNetworkListener {
             override fun onNativeLoad(nativeAd: NativeAd) {
-                val moPubNativeEventListener: MoPubNativeEventListener =
-                    object : MoPubNativeEventListener {
+
+                val moPubNativeEventListener: MoPubNativeEventListener = object : MoPubNativeEventListener {
 
                         override fun onImpression(view: View?) {
                             // The ad has registered an impression. You may call any app logic that
@@ -63,8 +62,8 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
                 // In a manual integration, any interval that is at least 2 is acceptable
                 val adapterHelper = AdapterHelper(requireContext(), 0, 2)
                 val adView: View = adapterHelper.getAdView(null, null, nativeAd, ViewBinder.Builder(0).build())
-                 nativeAd.setMoPubNativeEventListener(moPubNativeEventListener)
-                 mAdContainer?.addView(adView)
+                nativeAd.setMoPubNativeEventListener(moPubNativeEventListener)
+                mAdContainer?.addView(adView)
 
             }
 
@@ -73,7 +72,8 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
             }
         })
 
-        updateRequestParameters()
+        initViewBinders()
+        beginLoadingAds()
         mAdContainer?.removeAllViews()
 
         if (mMoPubNative != null) {
@@ -83,6 +83,9 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
         }
 
 
+    }
+
+    private fun initViewBinders() {
         /*
         * TODO: NativeManualFragment:: Layout Initialized Here
         * */
@@ -132,7 +135,19 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
                 .build()
         )
 
+        registerNativeRenderers(
+            moPubStaticNativeAdRenderer,
+            facebookAdRenderer,
+            googlePlayServicesAdRenderer
+        )
 
+    }
+
+    private fun registerNativeRenderers(
+        moPubStaticNativeAdRenderer: MoPubStaticNativeAdRenderer,
+        facebookAdRenderer: FacebookAdRenderer,
+        googlePlayServicesAdRenderer: GooglePlayServicesAdRenderer
+    ) {
 
         // The first renderer that can handle a particular native ad gets used.
         // We are prioritizing network renderers.
@@ -147,11 +162,9 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
         val moPubVideoNativeAdRenderer = MoPubVideoNativeAdRenderer(mediaViewBinder)
         mMoPubNative?.registerAdRenderer(moPubVideoNativeAdRenderer)
         */
-
-
     }
 
-    private fun updateRequestParameters() {
+    private fun beginLoadingAds() {
 
         // Setting desired assets on your request helps native ad networks and bidders
         // provide higher-quality ads.
@@ -168,6 +181,7 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
             .build()
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         Log.d("ffnet", "0")
@@ -181,8 +195,7 @@ class NativeManualFragment : Fragment(R.layout.native_manual_fragment) {
         }
     }
 
-    private val name: String
-        private get() = if (mAdConfiguration == null || TextUtils.isEmpty(mAdConfiguration.headerName)) {
+    private val name: String = if (mAdConfiguration == null || TextUtils.isEmpty(mAdConfiguration.headerName)) {
             MoPubSampleAdUnit.AdType.MANUAL_NATIVE.getName()
         } else mAdConfiguration.headerName
 
